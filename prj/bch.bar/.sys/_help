@@ -1,0 +1,19 @@
+foo () { while read line; do echo "   $1 $line"; done }
+
+clr_bold USAGE:
+ls $this_usr| grep ^[a-z]                | foo $(clr_bold $this_name)
+echo "-h or --h (for more subcommands)"  | foo $(clr_bold $this_name)
+
+echo
+clr_bold ABOUT:
+cat $this_usr/__doc__  | foo
+
+echo
+clr_bold ENVIRONMENT:
+echo "    THIS=$THIS"
+set | grep ^THIS_$$ | foo
+[ ! -f ~/DEBUG ] && return
+
+echo
+clr_bold '~/DEBUG:'
+set | grep ^this   | foo

@@ -1,0 +1,13 @@
+$__init__
+
+dump () {
+    clr_bold "Hello from $(basename $this)!"
+    clr_bold "\$THIS : $THIS"
+    clr_bold "\$\$    :      $$"
+    clr_bold "\$PPID :      $PPID"
+    clr_bold "\$this_fin : $this_fin"
+    set | grep ^THIS | grep $THIS
+    set | grep ^this
+}
+
+dump

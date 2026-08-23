@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $1. == . ]; then
+    source $this_sys/_help | more -R
+    this_err=$?
+elif [ -f $this_usr/$1 ]; then
+    $this_dot $this_usr/"$@"
+    this_err=$?
+else
+    uv run --project $this_prj $this_app $*
+    this_err=$?
+fi
+source $this_cb

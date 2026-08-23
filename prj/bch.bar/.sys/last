@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+__outer () {
+    __inner $this_err
+}
+
+__inner () {
+     __teardown
+     unset -f ${FUNCNAME[1]}
+     unset -f ${FUNCNAME[0]}
+     return $1 
+}
+
+__teardown () {
+    rm -rf $this_cbdir
+    for name in $(set | grep ^this_ | cut -d'=' -f1 | grep ^this); do
+        [ ! "${name:0:4}" == "this" ] && continue
+        unset $name
+    done
+    unset this
+    unset __init__
+    unset -f my_main
+    unset -f my_final
+    unset -f my_export
+    unset -f ${FUNCNAME[0]}
+}
+
+__outer

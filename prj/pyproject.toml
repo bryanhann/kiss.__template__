@@ -1,0 +1,22 @@
+[project]
+name = "prj"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Bryan Hann", email = "nobody@nowhere" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "colorama>=0.4.6",
+    "fire>=0.7.1",
+    "pytest>=9.1.1",
+    "pytest-env>=1.7.0",
+]
+
+[project.scripts]
+prj = "prj:main"
+
+[build-system]
+requires = ["uv_build>=0.12.0,<0.13.0"]
+build-backend = "uv_build"
