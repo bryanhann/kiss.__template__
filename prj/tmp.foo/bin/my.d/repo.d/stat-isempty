@@ -1,0 +1,7 @@
+pushd $my_repo_local > /dev/null
+out=$(git rev-list -n 1 --all > /dev/null)
+err=$?
+popd > /dev/null
+echo isempty: err=$err >&2
+[ -z $out ] && [ $err = 0 ] && exit 0
+exit 1

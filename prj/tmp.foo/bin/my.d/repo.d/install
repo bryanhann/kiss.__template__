@@ -1,0 +1,14 @@
+dst=$my_repo_dst
+[ ! -d $my_repo_local ] &&  gh repo clone  $my_repo_name $my_repo_local
+[ ! -d $my_repo_local ] &&  gh repo create $my_repo_name --private
+[ ! -d $my_repo_local ] &&  gh repo clone  $my_repo_name $my_repo_local
+$my_name my repo stat-isempty && {
+    pushd $my_repo_local
+    touch log
+    git add log
+    git commit -m 'initial commit'
+    git push
+    popd > /dev/null
+} || {
+    echo not empty
+}

@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+__name__=$(basename ${BASH_SOURCE[1]})
+__name__=$(echo $__name__ | tr '.' '_' )
+
+_export () { 
+    export my_$1=$2 
+    export ${__name__}_$1=$2
+}
+
+[   "$0" == ${BASH_SOURCE[1]} ] && _export dot
+[   "$0" == ${BASH_SOURCE[1]} ] && _export fin exit
+[ ! "$0" == ${BASH_SOURCE[1]} ] && _export dot .
+[ ! "$0" == ${BASH_SOURCE[1]} ] && _export fin return
+
+_export link  ${BASH_SOURCE[1]}
+_export real  $(readlink $my_link)
+_export here  $(dirname $my_real)
+_export name  $(basename $my_here)
+_export prj   $(dirname $my_here)
+_export root  $(dirname $my_prj)
+_export bin   $my_here/bin
+_export main  $my_here/app/main.py
+_export sys   $my_here/.sys
+_export lib   $my_here/lib
+_export pylib $my_here/lib/python
+_export data         ~/.local/share/bch/$my_name
+_export repo_name    my.$my_name
+_export repo_local   $my_data/myRepo
+_export repo_remote  https://github.com/bryanhann/$my_repo_name
+_export bucket_src   $my_data/myBucket
+_export bucket_dst   s3://my.$my_name
+_export name_under   $(echo $my_name | tr '.' '_')
+_export name_dash    $(echo $my_name | tr '.' '-')
+_export name_big     $(echo $my_name_under | tr '[:lower:]' '[:upper:]')
+_export callback_dir ~/.tmp/callback.$THIS.d
+_export callback     $my_callback_dir/callback.sh
+_export callback     $my_callback_dir/callback.sh
+
+export __handle__="source ${my_sys}/__handle__.sh"
+
+mkdir -p $my_callback_dir
+touch    $my_callback
+
+source $my_sys/init.sh
+
+fix $my_here/config/__env__

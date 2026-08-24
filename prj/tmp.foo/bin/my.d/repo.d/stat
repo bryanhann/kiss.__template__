@@ -1,0 +1,4 @@
+pushd $my_repo_local > /dev/null
+git status  --short -b
+popd > /dev/null
+

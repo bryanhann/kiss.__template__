@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+aws s3 sync $my_bucket_src $my_bucket_dst

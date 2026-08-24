@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "" ]; then
+    [ "$my_fin" == "exit" ] && source $my_sys/help.sh | more -R
+    my_err=0
+    return
+elif [ -f $my_bin/$1 ]; then
+    $my_dot $my_bin/"$@"
+    my_err=$?
+else
+    export PYTHONPATH=$my_pylib
+    uv run --project $my_prj $my_main $*
+    my_err=$?
+    source $my_callback
+fi
