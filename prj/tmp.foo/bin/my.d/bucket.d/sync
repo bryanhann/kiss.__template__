@@ -1,2 +1,15 @@
 #!/usr/bin/env bash
-aws s3 sync $my_bucket_src $my_bucket_dst
+$__init__
+. header $*
+$my bucket exists || {
+    clr_bold "cannot sync nonexistant bucket"
+    exit
+}
+local=$my_bucket_local
+remote=$my_bucket_remote
+clr_bold "touching local/random ..."
+echo $RANDOM > $local/random
+cd $(dirname $local)
+clr_bold "syncing..."
+aws s3 sync $local $remote
+

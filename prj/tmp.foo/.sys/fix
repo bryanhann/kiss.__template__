@@ -1,3 +1,0 @@
-cat __env__ | sed s/my_/xxx_/g  | sed s/my-/xxx-/g > o
-source o
-

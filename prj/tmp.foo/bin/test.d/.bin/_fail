@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo $(clr_red clr_bold "[FAIL]") "$@"
+return 1

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+$__init__
+PARENT_COMMAND=$(ps -o comm= $PPID)
+echo 777 $PARENT_COMMAND
+name=$(basename $1)
+echo expect: $1 >&2
+echo exp: $exp  >&2
+echo got: $got  >&2
+[ "$exp" == "$got" ] && echo $(clr_green [pass]) "(expect)" $name
+[ "$exp" == "$got" ] || echo $(clr_red   [fail]) "(expect)" $name
+[ "$exp" == "$got" ]

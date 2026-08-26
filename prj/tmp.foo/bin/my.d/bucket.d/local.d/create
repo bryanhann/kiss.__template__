@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+$__init__
+mkdir -p $my_bucket_local
+$my bucket local exists -q
+

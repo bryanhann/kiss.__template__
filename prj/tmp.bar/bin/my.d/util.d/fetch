@@ -1,2 +1,0 @@
-ln -s $my_here ~/$my_name > /dev/null
-pushd ~/$my_name

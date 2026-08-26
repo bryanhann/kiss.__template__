@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+$__init__
+
+[ -d $my_bucket_local ] && ret=true || ret=false
+[ ! $1. == -q. ] && echo $ret
+[ $ret. == true. ]
+

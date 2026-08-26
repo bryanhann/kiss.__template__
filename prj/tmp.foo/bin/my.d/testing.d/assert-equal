@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+$__init__
+a="$1"
+b="$2"
+shift 2
+[ "$a" == "$b" ] && echo $(clr_green "[pass]") assert [$a]==[$b] \""$@"\"
+[ "$a" == "$b" ] || echo $(clr_red   "[FAIL]") assert [$a]==[$b] \""$@"\"
+[ "$a" == "$b" ]

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+$__init__
+
+ls $my_bucket_local

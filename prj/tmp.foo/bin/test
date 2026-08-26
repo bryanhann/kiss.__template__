@@ -1,0 +1,3 @@
+$__init__
+export PATH=$my_testd/.bin:$PATH
+$__handle__

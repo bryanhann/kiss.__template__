@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set | grep ^my_bucket
-mkdir -p $my_bucket_src
-aws s3 mb $my_bucket_dst
-date >> $my_bucket_src/log

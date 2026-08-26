@@ -23,7 +23,7 @@ def pytest_configure(config):
     os.environ[ "my_callback"      ] = CALLBACK
     os.environ[ "my_name"          ] = NAME
     os.environ[ "my_pylib"         ] = LIB
-    os.environ[ "my_bucket_dst"    ] = "s3://xxx"
+    os.environ[ "my_bucket_remote" ] = "s3://xxx"
     os.environ[ "PYTHONPATH"       ] = PYTHONPATH
 
 

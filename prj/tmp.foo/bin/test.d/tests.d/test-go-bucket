@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+$__init__
+tmp-foo-go bucket
+. assert-equal tmp-foo.bucket $(basename $PWD)
+

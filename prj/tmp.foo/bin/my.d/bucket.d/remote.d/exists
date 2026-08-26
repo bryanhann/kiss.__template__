@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+$__init__
+
+aws s3 ls $my_bucket_remote > /dev/null 2> /dev/null && ret=true || ret=false
+[ ! $1. == -q. ] && echo $ret
+[ $ret. == true. ]
+

@@ -3,4 +3,4 @@
 from __me__ import ME
 
 def test_ME_my_bucket():
-    assert ME.my.bucket_dst.startswith ('s3://')
+    assert ME.my.bucket_remote.startswith ('s3://')

@@ -6,7 +6,9 @@ base=$(basename $bash0)
 [ "$base" == "$1" ] && shift
 
 [ -d $bash0.d ] && [ -f $bash0.d/$1 ] && {
-    $my_dot $bash0.d/"$@"
+    export PATH=$bash0.d/.bin:$PATH
+    #$my_dot $bash0.d/"$@"
+    $bash0.d/"$@"
     return $?
 }
 

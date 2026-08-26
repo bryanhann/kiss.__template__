@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+$__init__
+path=${BASH_SOURCE[1]:${#my_bin}}
+path=$(echo $path | tr '/.'  '  ')
+a=$my_name
+
+for b in $path; do
+    [ $b. == d. ] && continue
+    a="$a $b"
+done
+clr_bold "[$a] $*"

@@ -1,2 +1,19 @@
-my-go-repo   () { pushd $my_repo_local; }
-my-go-bucket () { pushd $my_bucket_src; }
+my-fetch () {
+    ln -s $my_here ~/$my_name > /dev/null
+    pushd ~/$my_name
+}
+my-go () {
+    local x
+    case $1. in 
+        home.) 
+            x=$my_here
+            ;;
+        bucket.) 
+            x=$my_bucket_local
+            ;;
+        repo.) 
+            x=$my_repo_local
+            ;;
+    esac
+    [ ! -z $x ] && pushd $x > /dev/null
+}

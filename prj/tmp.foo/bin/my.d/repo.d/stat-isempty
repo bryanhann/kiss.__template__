@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+$__init__
+
 pushd $my_repo_local > /dev/null
 out=$(git rev-list -n 1 --all > /dev/null)
 err=$?

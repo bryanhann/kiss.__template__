@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+$__init__
+#$my bucket delete
+exists=$($my bucket exists)
+. assert-equal $exists false
+echo 777777777
+read
+return
+
+if [ ! "${my_bucket:0:3}" == "tmp" ]; then
+
+
+    echo not a tmp bucket. Not deleting
+    exit
+fi
+
+clr_bold "removing local bucket ..."
+
+$my bucket stat
+[ -e $my_bucket_local ] && echo removing local
+[ -e $my_bucket_local ] && rm -rf $my_bucket_local
+[ -e $my_bucket_local ] && clr_bold "removing local failed"
+$my bucket stat
+
+clr_bold "emptying remote bucket ..."
+
+aws s3 rm $my_bucket_remote --recursive 2> /dev/null || {
+    echo remote bucket does not exist
+    exit 0
+}
+
+clr_bold "removing remote bucket ..."
+
+aws s3 rb $my_bucket_remote 

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+$__init__
+
+
+clr_bold "creating local bucket..."
+
+$my bucket stat
+mkdir -p $my_bucket_local
+$my bucket stat
+
+clr_bold "creating remote bucket ..."
+
+aws s3 mb $my_bucket_remote 2> /dev/null || {
+    echo already exists
+}
+
+clr_bold "touching local log"
+
+magic=$RANDOM.$RANDOM
+echo $magic  > $my_bucket_local/log
+
+clr_bold "syncing remote bucket ..."
+
+$my bucket sync
+
+clr_bold "testing remote bucket ..."
+
+aws s3 cp $my_bucket_remote/log ~/tmp.log
+exp=$(cat $my_bucket_local/log)
+got=$(cat ~/tmp.log)
+rm ~/tmp.log
+echo exp: $exp
+echo got: $exp
+[ "$exp" == "$got" ] && clr_green "pass"
+[ "$exp" == "$got" ] || clr_red   "fail"
+

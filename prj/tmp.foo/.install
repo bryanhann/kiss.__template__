@@ -1,5 +1,5 @@
 cd $(dirname ${BASH_SOURCE[0]})
-source $PWD/.sys/_vendor
+source $PWD/.sys/vendor.d/bash_colors.sh
 real=$PWD/.main.sh
 name=$(basename $PWD)
 link=~/.local/bin/$name

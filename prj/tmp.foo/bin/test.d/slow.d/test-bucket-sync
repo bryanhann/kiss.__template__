@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+$__init__
+magic=$RANDOM.$RANDOM
+
+clr_bold "touching local log"
+
+echo $magic  > $my_bucket_local/log
+
+clr_bold "syncing remote bucket ..."
+
+$my bucket sync
+
+clr_bold "testing remote bucket ..."
+
+aws s3 cp $my_bucket_remote/log ~/tmp.log
+exp=$(cat $my_bucket_local/log)
+got=$(cat ~/tmp.log)
+rm ~/tmp.log
+
+. assert-equal $exp $got
+

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+$__init__
+
+name=$(basename $1)
+output=$my_tests/regress.d
+mkdir -p ${output}
+exp=$output/$name.exp
+got=$output/$name.got
+
+$2 > $got
+cmp $exp $got
+err=$?
+[ $err == 0 ] && echo $(clr_green [pass]) "(regress)" $name
+[ $err == 0 ] || echo $(clr_red   [fail]) "(regress)" $name
+exit $err
+
