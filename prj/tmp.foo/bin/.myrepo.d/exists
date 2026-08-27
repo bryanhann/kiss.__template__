@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 $__init__
 . header $*
-local=$my_bucket_local
-remote=$my_bucket_remote
 
-$my_name .mybucket local exists  && isL=true || isL=false
+$my_name .myrepo local exists  && isL=true || isL=false
 
-$my_name .mybucket remote exists  && isR=true || isR=false
+$my_name .myrepo remote exists && isR=true || isR=false
 
 ret=err
 [ $isL == true  ] && [ $isR == true  ] && ret=true
@@ -14,5 +12,4 @@ ret=err
 
 . header $*
 echo $ret
-
 [ $ret == true ]

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+$__init__
+. header $*
 
-gh repo create $my_repo --private
-#[ ! -d $my_repo_local ] &&  gh repo clone  $my_repo $my_repo_local
-#[ ! -d $my_repo_local ] &&  gh repo create $my_repo --private
-#[ ! -d $my_repo_local ] &&  gh repo clone  $my_repo $my_repo_local
+clr_bold "$ gh repo create $my_repo --private"
+            gh repo create $my_repo --private
+
+$my_name .myrepo remote exists

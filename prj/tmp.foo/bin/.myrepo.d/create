@@ -4,3 +4,4 @@ $__init__
 
 $my_name .myrepo remote create
 $my_name .myrepo local  create
+$my_name .myrepo exists

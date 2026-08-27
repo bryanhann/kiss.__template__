@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+doomed_repo=$1
+[ ! "$2" == "--force" ] && {
+    echo warning: this WILL deleter repo $1
+    echo press enter three times to continue
+    read
+    read
+    read
+}
+
+here=$(dirname ${BASH_SOURCE[0]})
+
+$here/.danger/danger.expect $doomed_repo
+
+#clr_bold "deleting remote repo#"
+#danger=$(dirname ${BASH_SOURCE[0]})/.bin/danger.expect
+#cat $danger
+#$danger $my_repo

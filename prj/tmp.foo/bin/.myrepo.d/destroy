@@ -2,5 +2,6 @@
 $__init__
 . header $*
 
-$my_name .myrepo local  destroy
 $my_name .myrepo remote destroy
+$my_name .myrepo local  destroy
+$my_name .myrepo exists
