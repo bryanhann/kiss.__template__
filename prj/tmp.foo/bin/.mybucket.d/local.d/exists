@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+[ -d $my_bucket_local ] && {
+    echo true
+    exit 0
+} || {
+    echo false
+    exit 1
+}

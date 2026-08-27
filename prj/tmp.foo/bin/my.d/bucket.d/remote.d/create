@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-
-aws s3 mb $my_bucket_remote
-

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+$__init__
+
+$my_name .myrepo situ gh $*

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+$my_name .mybucket remote create
+$my_name .mybucket local create
+exit 
+local=$my_bucket_local
+remote=$my_bucket_remote
+clr_bold "creating local..."
+mkdir -p $local
+echo $RANDOM > $local/random
+
+clr_bold "creating remote..."
+aws s3 ls $remote > /dev/null 2> /dev/null || aws s3 mb $remote
+
+clr_bold "confirming..."
+$my bucket exists -q
+
+clr_bold "syncing,,,"
+$my bucket sync

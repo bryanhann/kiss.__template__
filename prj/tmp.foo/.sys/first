@@ -23,7 +23,6 @@ _export dname  $(echo $my_name | tr '.' '-')
 _export prj    $(dirname $my_here)
 _export root   $(dirname $my_prj)
 _export bin    $my_here/bin
-_export testd  $my_here/bin/test.d
 _export main   $my_here/app/main.py
 _export sys    $my_here/.sys
 _export lib    $my_here/lib

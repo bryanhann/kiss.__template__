@@ -1,0 +1,5 @@
+$__init__
+here=$(dirname ${BASH_SOURCE[0]})
+export my_testd=${BASH_SOURCE[0]}.d
+export PATH=$my_testd/.bin:$PATH
+$__handle__

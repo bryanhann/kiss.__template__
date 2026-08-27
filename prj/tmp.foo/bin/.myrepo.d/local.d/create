@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+$__init__
+
+if [ ! -d $my_repo_local ]; then
+    clr_bold "attempting to clone..."
+    gh repo clone $my_repo $my_repo_local
+    if [ ! -d $my_repo_local ]; then
+        echo
+        clr_bold "could not clone. does the remote exist?"
+        exit 1
+    fi 
+fi
+
+pushd $my_repo_local > /dev/null
+git log || {
+    echo git log returned an error.
+    touch hello
+    git add ./hello
+    git commit -m "initial commit"
+    git push
+} 
+popd > /dev/null

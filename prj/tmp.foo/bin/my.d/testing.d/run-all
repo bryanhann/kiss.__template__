@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-for name in $(ls $my_tests | grep ^test ); do
-    $my testing run $my_tests/$name
-done

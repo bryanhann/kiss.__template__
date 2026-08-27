@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-pushd $my_repo_local > /dev/null && {
-    git $*
-    popd > /dev/null
-}

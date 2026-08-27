@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+echo
+echo
+$my_name .mybucket destroy
+$my_name .mybucket exists
+echo
+echo
+$my_name .mybucket create
+$my_name .mybucket exists
+echo 
+echo
+$my_name .mybucket destroy
+$my_name .mybucket exists

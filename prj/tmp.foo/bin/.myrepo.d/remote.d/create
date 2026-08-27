@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+gh repo create $my_repo --private
+#[ ! -d $my_repo_local ] &&  gh repo clone  $my_repo $my_repo_local
+#[ ! -d $my_repo_local ] &&  gh repo create $my_repo --private
+#[ ! -d $my_repo_local ] &&  gh repo clone  $my_repo $my_repo_local

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-
-aws s3 rm $my_bucket_remote --recursive 2> /dev/null  && {
-    aws s3 rb $my_bucket_remote
-} || {
-    echo does not exist
-}
-

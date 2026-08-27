@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+
+aws s3 ls $my_bucket_remote > /dev/null 2> /dev/null && {
+    echo true
+    exit 0
+} || {
+    echo false
+    exit 1
+}
+

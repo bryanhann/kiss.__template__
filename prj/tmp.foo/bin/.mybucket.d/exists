@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+local=$my_bucket_local
+remote=$my_bucket_remote
+
+[ -d $local ]  && isL=true || isL=false
+echo >&2 local exists: $isL
+
+aws s3 ls $remote > /dev/null 2> /dev/null && isR=true || isR=false
+echo >&2 remote exists: $isR
+
+ret=err
+[ $isL == true  ] && [ $isR == true  ] && ret=true
+[ $isL == false ] && [ $isR == false ] && ret=false
+
+[ ! $1. == -q. ] && echo $ret
+[ $ret == true ]

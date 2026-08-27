@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+gh repo list -L 999 | grep bryanhann/$my_repo > /dev/null && {
+    echo true
+    exit 0
+} || {
+    echo false
+    exit 1
+}

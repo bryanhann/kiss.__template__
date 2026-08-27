@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-echo 66
-$my bucket destroy
-$my bucket create
-$my bucket destroy

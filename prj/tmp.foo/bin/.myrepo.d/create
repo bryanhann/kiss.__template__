@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+
+$my_name .myrepo remote create
+$my_name .myrepo local  create

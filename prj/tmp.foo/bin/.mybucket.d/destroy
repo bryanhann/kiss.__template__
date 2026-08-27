@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+$__init__
+. header $*
+$my_name .mybucket local destroy
+$my_name .mybucket remote destroy
+exit
+local=$my_bucket_local
+remote=$my_bucket_remote
+
+[ ! "${my_name:0:3}" == "tmp" ] && {
+    clr_bold "cannot destroy non temp: $my_name"
+    exit 
+}
+
+clr_bold "removing local..."
+
+rm -rf $local
+
+clr_bold "removing remote..."
+
+aws s3 rm $remote --recursive 2> /dev/null && aws s3 rb $remote
+
+clr_bold "confirming..."
+
+$my bucket exists -q

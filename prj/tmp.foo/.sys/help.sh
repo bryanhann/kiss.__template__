@@ -1,7 +1,7 @@
 foo () { while read line; do echo "   $1 $line"; done }
 
 clr_bold USAGE:
-for name in $(ls $my_bin); do
+for name in $(ls -a $my_bin); do
     path=$my_bin/$name
     [ ! -f $path ] && continue
     echo $name  | foo $(clr_bold $my_name)

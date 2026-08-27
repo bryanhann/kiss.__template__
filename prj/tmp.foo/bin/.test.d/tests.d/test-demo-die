@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+$__init__
+$my_name .demo die 42
+. assert-equal "$?" "42" $(basename $0)
+
