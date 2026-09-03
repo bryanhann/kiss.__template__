@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-tmp-foo-go repo
-. assert-equal tmp-foo.repo $(basename $PWD)
-

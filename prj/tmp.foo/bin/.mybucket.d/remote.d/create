@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-
-$my_name .mybucket remote exists && exit
-clr_bold "$ aws s3 mb $my_bucket_remote"
-            aws s3 mb $my_bucket_remote
-$my_name .mybucket remote exists
-

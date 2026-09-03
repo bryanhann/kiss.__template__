@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-
-clr_bold "$ gh repo create $my_repo --private"
-            gh repo create $my_repo --private
-
-$my_name .myrepo remote exists

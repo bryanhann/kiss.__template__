@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-
-rm -rf $my_bucket_local
-
-$my_name .mybucket local exists

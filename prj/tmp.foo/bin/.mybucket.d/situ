@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-pushd $my_bucket_local > /dev/null 2> /dev/null || {
-    clr_bold "cannot enter local bucket. Does it exist?"
-    exit 1
-}
-$*
-popd > /dev/null

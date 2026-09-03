@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#main
+export real=${BASH_SOURCE[0]}
+while [ -L $real ]; do export real=$(readlink $real); done
+here=$(dirname $real)
+prj=$(dirname $here)
+
+export my_name=$(basename $real)
+export my_callback=~/.tmp/callback.$$.$RANDOM.d/callback.sh
+
+mkdir $(dirname $my_callback)
+echo '#this is a callback file' > $my_callback
+
+source $here/.hooks/pre-exec.sh
+uv run --project $prj $here/app/main.py "$@"
+source $here/.hooks/post-exec.sh
+
+source $my_callback
+rm -rf $(dirname $my_callback)

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-cd $(dirname ${BASH_SOURCE[0]})
-for name in $(ls ./tests.d | grep ^test ); do
-    ./tests.d/$name
-done

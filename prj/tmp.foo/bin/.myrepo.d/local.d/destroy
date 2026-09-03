@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-exists () { $my_name .myrepo local exists; }
-
-exists && {
-    rm -rf $my_repo_local
-    exists
-}

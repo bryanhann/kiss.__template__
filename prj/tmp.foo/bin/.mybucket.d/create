@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-. header $*
-
-$my_name .mybucket remote create
-$my_name .mybucket local create

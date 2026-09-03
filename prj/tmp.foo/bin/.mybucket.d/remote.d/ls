@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-$__init__
-
-aws s3 ls $my_bucket_remote
