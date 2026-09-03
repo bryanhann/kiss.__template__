@@ -1,0 +1,2 @@
+v=$(dirname ${BASH_SOURCE[0]})/vendor.d
+source $v/bash_colors.sh

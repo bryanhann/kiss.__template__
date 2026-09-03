@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+this_here=$(dirname $this_init)

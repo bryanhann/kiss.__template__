@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+this_callback=$HOME/.tmp/callback.$$.$RANDOM.d/callback.sh
+mkdir -p $(dirname $this_callback)

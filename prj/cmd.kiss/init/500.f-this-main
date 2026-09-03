@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+this-main () {
+    source $this_prehook
+    [   "$1" == "." ] && this-bash "$@"
+    [ ! "$1" == "." ] && this-python "$@"
+    source $this_posthook
+}
+

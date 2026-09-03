@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+this_prj=$(dirname $this_here)

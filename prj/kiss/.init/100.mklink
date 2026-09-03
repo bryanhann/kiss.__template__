@@ -1,9 +1,0 @@
-mklink () {
-    local real=$1
-    local name=$(basename $real)
-    local link=$the_lbin/$name
-    clr_bold "   ln -s <here>/$name <lbin>/$name"
-    [ -L $link ] && rm $link
-    ln -s $real $link
-}
-
