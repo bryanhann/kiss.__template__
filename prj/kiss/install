@@ -9,7 +9,7 @@ this0=\$HOME${this:${#HOME}}
 here0=\$HOME${here:${#HOME}}
 lbin0=\$HOME${lbin:${#HOME}}
 
-source $here/.init.d/init.sh
+source $here/.init/init.sh
 
 clr_bold "[$this0]"
 clr_bold "   <here> = $here0"

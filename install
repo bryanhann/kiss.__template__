@@ -1,23 +1,6 @@
 #!/usr/bin/env bash
 cd $(dirname $0) > /dev/null
-source  $PWD/.vendor.d/bash_colors.sh
-repo=$(basename $PWD)
-clr_bold  "[$repo]/install"
-cd prj
-uv sync
-cd ..
 
-myls () {
-    for name in $(ls $1); do
-        echo $1/$name
-    done
-}
-dotinstall () {
-    local target
-    while read path; do
-        target=$path/.install
-        [ ! -f $target ] && continue
-        $target
-    done
-}
-myls $PWD/prj | dotinstall
+for installer in $(find $PWD/prj -name install -maxdepth 2); do
+    $installer
+done
